@@ -1,0 +1,27 @@
+new Vue({
+    el: '#tasklist',
+    data: {
+        title: 'to do list',
+        tasks: [
+            { name: 'Today: Meeting' },
+            { name: 'Tomorrow: Read a novel' },
+            { name: 'Daily: Gym' }
+        ]
+    },
+    methods: {
+        newItem: function() {
+            if (!this.tasks.name) {
+                return
+            }
+            this.tasks.push({
+                name: this.tasks.name,
+                del: ''
+            });
+            this.tasks.name = "";
+
+        },
+        delItem: function(task) {
+            this.tasks.splice(this.tasks.indexOf(task), 1)
+        }
+    }
+})
